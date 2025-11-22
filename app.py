@@ -2,6 +2,13 @@ from servicios import *
 from archivos import *
 
 def menu():
+    """Muestra el menú de opciones
+    
+    No tiene parámetros ni retorna nada.
+    
+    """
+
+
     print(f"#" * 50)
     print("                MENÚ DE OPCIONES")
     print("                1. Agregar")
@@ -15,9 +22,14 @@ def menu():
     print("                9. Salir")
 
 def main():
-    
+
+    """Es la función principal, encargada de desplegar el menú repetidamente
+    e invocar todas las funciones para que el programa funcione."""
+
+    #Repito el menú para que siempre esté a la vista luego de finalizar la ejecución de una función.
     while True:
         menu()
+        #Capturo los errores si el usuarios me ingresa un valor incorrecto
         try:
             opcion = int(input("Por favor seleccione una de las opciones del menú a realizar: ")) 
         except ValueError:
@@ -30,7 +42,7 @@ def main():
                             nombre = input("Ingrese el nombre del producto: ").lower()
                             precio = float(input("Ingrese el precio del producto: "))
                             cantidad = int(input("Ingrese la cantidad de productos: "))
-
+                            #Si el usuario ingresa un valor o cantidad negativo, muestra error y empieza de nuevo.
                             if precio <= 0 or cantidad <= 0:
                                 print("Precio y cantidad deben ser valores positivos.")
                                 continue
@@ -131,7 +143,8 @@ def main():
                     break
             else:
                 print("Opción no válida, ingrese un número dentro del menú")
-        
+#Antes de ejecutar el menú, creo la lista inventario vacía, para que las funciones puedan reconocerla como argumento.        
 inventario = []
+#Aquí ejecuto la función principal
 main()
                 
